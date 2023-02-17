@@ -11,6 +11,18 @@ public class Main {
 
     public class FileOperation {
 
+        // 1 read
+        data = Files.readString(Path.of("file"));
+
+
+        // 1 write out = filename, печать на экран или в файл.
+        PrintStream printStream = out == null ? System.out : new PrintStream(out);
+
+        for (char c : data.toCharArray()) {
+            c = (char) (c + key);
+            printStream.print(c);
+        }
+
         public static String readMessageFromFile(String inFile) throws Exception {
             try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
                 StringBuilder sb = new StringBuilder();
