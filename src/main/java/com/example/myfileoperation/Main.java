@@ -23,12 +23,19 @@ public class Main {
             printStream.print(c);
         }
 
-        public static String readMessageFromFile(String inFile) throws Exception {
-            try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
-                StringBuilder sb = new StringBuilder();
-                return br.readLine();
-            } catch (Exception e) {
-                throw new Exception(e);
+
+        Текст из файла линия за линией
+        public class Main {
+            public static void main(String[] args) throws Exception {
+                try (BufferedReader br = new BufferedReader(new FileReader(args[0]))) {
+                    String line = br.readLine();
+                    while (line != null) {
+                        System.out.println(line);
+                        line = br.readLine();
+                    }
+                } catch (Exception e) {
+                    throw new Exception(e);
+                }
             }
         }
 
